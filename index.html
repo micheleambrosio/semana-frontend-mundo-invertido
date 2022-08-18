@@ -131,7 +131,7 @@
     <audio id="music" src="assets/musics/normal-world.mpeg" autoplay></audio>
 
     <script>
-      document.addEventListener('load', function() {
+      window.addEventListener('click', function() {
         const audio = document.getElementById('music');
         audio.play();
         audio.volume = 0.2;
