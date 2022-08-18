@@ -131,6 +131,12 @@
     <audio id="music" src="assets/musics/normal-world.mpeg" autoplay></audio>
 
     <script>
+      document.addEventListener('load', function() {
+        const audio = document.getElementById('music');
+        audio.play();
+        audio.volume = 0.2;
+      })
+
       function switchTheme() {
         document.body.classList.toggle('dark-theme');
         document.body.classList.toggle('light-theme');
