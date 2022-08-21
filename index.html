@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,11 +8,13 @@
 
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body class="light-theme">
-    <header>
+  <body class="light-theme" aria-label="O site está utilizando o tema light.">
+    <header aria-label="Cabeçalho da página com Logo e uma pequena descrição do evento.">
+      <audio aria-labelledby="audio-description" id="music" src="assets/musics/normal-world.mpeg" autoplay></audio>
+      <p style="display: none" id="audio-description">Musica de fundo tema da série. Para desativar, pressione a tecla espaço</p>
       <div class="header-content">
-        <img class="invert-element" src="assets/images/banner/logo.svg" alt="" />
-        <p class="invert-element">
+        <img class="invert-element" src="assets/images/banner/logo.svg" alt="Imagem principal Mundo Invertido. Semana Frontend DIO." />
+        <p class="invert-element" role="text">
           Uma jornada para quem não tem medo do desconhecido. O caminho para o
           Mundo invertido é incerto, repleto de obstáculos e perigos. Porém, a
           recompensa é grande: salvar Hawkings e o mundo todo das garras de
@@ -30,8 +32,8 @@
 
       <section id="section-inverted-world" class="container">
         <div class="section-texts">
-          <h2>O Mundo Invertido</h2>
-          <p>
+          <h1>O Mundo Invertido</h1>
+          <p role="text">
             O Mundo Invertido parece uma cópia do nosso mundo, mas com criaturas
             horrendas, tempestades assustadoras, muita escuridão e entidades
             malignas. Um reino controlado por Vecna, que tem planos de trazer
@@ -42,12 +44,12 @@
         <img
           class="invert-element"
           src="assets/images/content/inverted-world.png"
-          alt="Mundo Invertido"
+          alt="Image ilustrativa do Mundo Invertido"
         />
       </section>
 
       <section id="section-stranger-things-trailer" class="container">
-        <div class="video-frame">
+        <div class="video-frame" aria-hidden="true">
           <iframe
             width="460"
             height="215"
@@ -60,7 +62,7 @@
         </div>
         <div class="section-texts">
           <h2>Stranger Things Vol. 4</h2>
-          <p>
+          <p role="text">
             Mais experientes, os heróis de Stranger Things também precisam
             enfrentar desafios maiores do que nunca e fazer decisões que vão
             mudar suas vidas para sempre. Confira ao lado o trailer da quarta
@@ -72,17 +74,17 @@
       <section id="section-stranger-things-gallery">
         <div class="container section-text">
           <h2>A segunda série mais assistida da Netflix</h2>
-          <div class="gallery-container">
-            <div class="gallery-image invert-element">
+          <ul class="gallery-container">
+            <li class="gallery-image invert-element">
               <img src="assets/images/content/serie-image-01.png" alt="" />
-            </div>
-            <div class="gallery-image invert-element">
+            </li>
+            <li class="gallery-image invert-element">
               <img src="assets/images/content/serie-image-02.png" alt="" />
-            </div>
-            <div class="gallery-image invert-element">
+            </li>
+            <li class="gallery-image invert-element">
               <img src="assets/images/content/serie-image-03.png" alt="" />
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -102,16 +104,16 @@
           <div class="form-container">
             <form action="">
               <label for="name">Nome Completo</label>
-              <input type="text" name="name">
+              <input type="text" name="name" id="name">
 
               <label for="email">E-mail</label>
-              <input type="email" name="email">
+              <input type="email" name="email" id="email">
 
               <label for="level">Level</label>
-              <input type="text" name="level">
+              <input type="text" name="level" id="level">
 
               <label for="character">Personagem</label>
-              <textarea name="character" cols="30" rows="10"></textarea>
+              <textarea name="character" id="character" cols="30" rows="10"></textarea>
             
               <button>Me inscrever</button>
             </form>
@@ -128,17 +130,19 @@
       <img src="assets/images/footer/logo.svg" alt="">
     </footer>
 
-    <audio id="music" src="assets/musics/normal-world.mpeg" autoplay></audio>
-
     <script>
       window.addEventListener('click', function() {
         const audio = document.getElementById('music');
         audio.play();
         audio.volume = 0.2;
-      })
+      });
 
       function switchTheme() {
         document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        document.body.setAttribute('aria-label', 'Trocando o tema');
+
         document.body.classList.toggle('light-theme');
 
         const theme = document.body.classList[0];
