@@ -100,20 +100,20 @@
           <h3>Entre para o clube de D&D e tenha experiências de <span>outro mundo<span></span></h3>
 
           <div class="form-container">
-            <form action="">
+            <form>
               <label for="name">Nome Completo</label>
-              <input type="text" name="name">
+              <input type="text" name="name" id="txtName">
 
               <label for="email">E-mail</label>
-              <input type="email" name="email">
+              <input type="email" name="email" id="txtEmail">
 
               <label for="level">Level</label>
-              <input type="text" name="level">
+              <input type="text" name="level" id="txtLevel">
 
               <label for="character">Personagem</label>
-              <textarea name="character" cols="30" rows="10"></textarea>
+              <textarea name="character" cols="30" rows="10" id="txtCharacter"></textarea>
             
-              <button>Me inscrever</button>
+              <button type="button" id="btnSubscribe">Me inscrever</button>
             </form>
           </div>
         </div>
@@ -150,5 +150,7 @@
         audio.volume = 0.2;
       }
     </script>
+
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
